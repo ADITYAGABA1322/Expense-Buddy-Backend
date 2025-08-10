@@ -8,6 +8,7 @@ import { ExpensesModule } from './expenses/expense.module';
 import { SyncModule } from './sync/sync.module';
 import { AppController } from './app.controller';
 
+
 @Module({
   imports: [
     ConfigModule.forRoot({
