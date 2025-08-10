@@ -8,11 +8,6 @@ async function bootstrap() {
     logger: ['log', 'error', 'warn', 'debug', 'verbose'],
   });
   
-  app.enableCors({
-    origin: true,
-    credentials: true,
-  });
-  
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
@@ -20,6 +15,14 @@ async function bootstrap() {
       transform: true,
     }),
   );
+
+  app.enableCors({
+    // origin: ['https://my-domain.com'], // Specify allowed origins
+    origin: '*',
+    credentials: true, // Include credentials in CORS requests
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    allowedHeaders: 'Content-Type, Accept, Authorization',
+  });
   
   app.setGlobalPrefix('api');
   
